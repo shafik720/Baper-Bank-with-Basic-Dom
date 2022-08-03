@@ -15,7 +15,7 @@ body{
     color: #0D6EFD;
 }
 .bank-box{
-    transition: all 0.2s ;
+    transition: all 0.3s ;
     cursor: pointer;
 }
 .bank-box:hover .deposit-text{
@@ -23,5 +23,35 @@ body{
 }
 .bank-box:hover{
     background: #0D6EFD;
+    color: white;
+}
+
+.withdraw-text{
+    color: #DC3545;
+}
+.bank-box-2{
+    transition: all 0.3s ;
+    cursor: pointer;
+}
+.bank-box-2:hover .withdraw-text{
+    color: white;
+}
+.bank-box-2:hover{
+    background: #DC3545;
+    color: white;
+}
+
+.balance-text{
+    color: #198754;
+}
+.bank-box-3{
+    transition: all 0.3s ;
+    cursor: pointer;
+}
+.bank-box-3:hover .balance-text{
+    color: white;
+}
+.bank-box-3:hover{
+    background: #198754;
     color: white;
 }
