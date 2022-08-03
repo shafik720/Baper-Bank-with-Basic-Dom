@@ -14,9 +14,11 @@ document.getElementById('submitBtn').addEventListener('click',function(){
     }else if(password.value == ''){
         errorPassword.style.display = 'block';
         errorPassword.innerText = 'This field can"t be empty !';
+        errorEmail.style.display = 'none';
     }else if(password.value != '123456'){
         errorPassword.style.display = 'block';
         errorPassword.innerText = 'Wrong password !';
+        errorEmail.style.display = 'none';
     }
     else if(email.value=='rafayelbd@gmail.com' && password.value=='123456'){
         errorEmail.style.display = 'none';
