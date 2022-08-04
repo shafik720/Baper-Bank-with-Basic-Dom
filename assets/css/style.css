@@ -60,6 +60,10 @@ body{
     display: none;
     color: red;
 }
+#withdrawErrorMsg{
+    display: none;
+    color: red;
+}
 
 
 

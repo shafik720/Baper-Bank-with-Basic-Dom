@@ -15,9 +15,7 @@ document.getElementById('depositBtn').addEventListener('click',function(){
     let depositErrorMsg = document.getElementById('depositErrorMsg'); // Showing error message if deposit input is invalid
     let activityDiv = document.getElementById('activity-div');
     let activityDivLiWithdraw = document.createElement('li');
-    activityDivLiWithdraw.classList.add('text-success', 'fw-bold');
-
-    
+    activityDivLiWithdraw.classList.add('text-success', 'fw-bold');    
     
     if(depositInput.value==''){
         depositErrorMsg.style.display = 'block';
@@ -44,4 +42,21 @@ document.getElementById('depositBtn').addEventListener('click',function(){
 
     // Clearing the deposit input field
     depositInput.value = '';
+})
+
+
+let withdrawValue = document.getElementById('withdrawInput');
+let withdrawErrorMsg = document.getElementById('withdrawErrorMsg');
+
+// Pressing the withdraw button
+document.getElementById('withdrawBtn').addEventListener('click', function(){
+    if(withdrawValue.value == ''){
+        withdrawErrorMsg.innerText = 'You didn"t input anything !'
+        withdrawErrorMsg.style.display = 'block';
+    }else if(withdrawValue.value <=0){
+        withdrawErrorMsg.innerText = 'Minus value or Zero value is not accepted !'
+        withdrawErrorMsg.style.display = 'block';
+    }else{
+        withdrawErrorMsg.style.display = 'none';
+    }
 })
