@@ -64,6 +64,9 @@ body{
     display: none;
     color: red;
 }
+#totalWithdrawActivity{
+    color: red;
+}
 
 
 

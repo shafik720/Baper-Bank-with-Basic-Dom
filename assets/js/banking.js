@@ -8,12 +8,13 @@ let balanceShow = document.getElementById('balanceShowCase').innerText;
 let convertedBalanceShow = parseFloat(balanceShow);
 let totalBalanceValue = convertedBalanceShow;
 
+let activityDiv = document.getElementById('activity-div');
+
 
 // Pressing Deposit button
 document.getElementById('depositBtn').addEventListener('click',function(){
     let depositInput = document.getElementById('depositInput');    
     let depositErrorMsg = document.getElementById('depositErrorMsg'); // Showing error message if deposit input is invalid
-    let activityDiv = document.getElementById('activity-div');
     let activityDivLiWithdraw = document.createElement('li');
     activityDivLiWithdraw.classList.add('text-success', 'fw-bold');    
     
@@ -25,7 +26,7 @@ document.getElementById('depositBtn').addEventListener('click',function(){
         depositErrorMsg.innerText = 'Minus value or Zero value is not accepted';
     }else{
         depositErrorMsg.style.display = 'none';
-        activityDivLiWithdraw.innerText = 'You have deposited '+ depositInput.value+'/-';        
+        activityDivLiWithdraw.innerText = 'You have Deposited '+ depositInput.value+'/-';        
         activityDiv.appendChild(activityDivLiWithdraw);
         depositShow = depositInput.value;
         convertedDepositShow = parseFloat(depositShow);
@@ -48,6 +49,10 @@ document.getElementById('depositBtn').addEventListener('click',function(){
 let withdrawValue = document.getElementById('withdrawInput');
 let withdrawErrorMsg = document.getElementById('withdrawErrorMsg');
 
+let totalWithdrawActivity = document.getElementById('totalWithdrawActivity');
+let totalWithdrawActivityConverted = parseFloat(totalDepositActivity.innerText);
+
+
 // Pressing the withdraw button
 document.getElementById('withdrawBtn').addEventListener('click', function(){
     if(withdrawValue.value == ''){
@@ -58,5 +63,17 @@ document.getElementById('withdrawBtn').addEventListener('click', function(){
         withdrawErrorMsg.style.display = 'block';
     }else{
         withdrawErrorMsg.style.display = 'none';
+        let activityDivLiWithdraw = document.createElement('li');
+        activityDivLiWithdraw.innerText = 'You have Withdrawed '+withdrawValue.value+'/-';
+        activityDivLiWithdraw.style.color = 'red';
+        activityDivLiWithdraw.style.fontWeight = 'bold';
+        activityDiv.appendChild(activityDivLiWithdraw);
+        totalWithdrawActivityConverted = totalWithdrawActivityConverted + parseFloat(withdrawValue.value);
+        totalWithdrawActivity.innerText = totalWithdrawActivityConverted;
+        console.log(totalWithdrawActivityConverted);
+
     }
+
+    // Clearing the withdraw input field
+    withdrawValue.value = '';
 })
