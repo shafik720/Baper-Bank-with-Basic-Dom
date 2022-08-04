@@ -55,3 +55,12 @@ body{
     background: #198754;
     color: white;
 }
+
+
+
+/* For mobile:  */
+@media only screen and (max-width:767px){
+    .header-text{
+        font-size: 18px;
+    }
+}
