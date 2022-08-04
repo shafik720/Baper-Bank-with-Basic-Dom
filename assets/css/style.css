@@ -58,7 +58,9 @@ body{
 
 #depositErrorMsg{
     display: none;
+    color: red;
 }
+
 
 
 

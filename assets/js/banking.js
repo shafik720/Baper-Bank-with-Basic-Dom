@@ -1,4 +1,8 @@
 
+let depositShow = document.getElementById('depositShowCase').innerText;
+let convertedDepositShow = parseFloat(depositShow);
+let totalDepositValue = convertedDepositShow;
+
 // Pressing Deposit button
 document.getElementById('depositBtn').addEventListener('click',function(){
     let depositInput = document.getElementById('depositInput');    
@@ -6,6 +10,8 @@ document.getElementById('depositBtn').addEventListener('click',function(){
     let activityDiv = document.getElementById('activity-div');
     let activityDivLiWithdraw = document.createElement('li');
     activityDivLiWithdraw.classList.add('text-success', 'fw-bold');
+
+    
     
     if(depositInput.value==''){
         depositErrorMsg.style.display = 'block';
@@ -15,8 +21,14 @@ document.getElementById('depositBtn').addEventListener('click',function(){
         depositErrorMsg.innerText = 'Minus value or Zero value is not accepted';
     }else{
         depositErrorMsg.style.display = 'none';
-        activityDivLiWithdraw.innerText = 'You have deposited '+ depositInput.value;        
+        activityDivLiWithdraw.innerText = 'You have deposited '+ depositInput.value+'/-';        
         activityDiv.appendChild(activityDivLiWithdraw);
+        depositShow = depositInput.value;
+        convertedDepositShow = parseFloat(depositShow);
+        // console.log(convertedDepositShow);
+
+        totalDepositValue = totalDepositValue + convertedDepositShow;
+        console.log(totalDepositValue);
     }
 
     // Clearing the deposit input field
