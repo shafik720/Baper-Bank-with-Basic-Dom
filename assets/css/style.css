@@ -56,6 +56,12 @@ body{
     color: white;
 }
 
+#depositErrorMsg{
+    display: none;
+}
+
+
+
 
 
 /* For mobile:  */
