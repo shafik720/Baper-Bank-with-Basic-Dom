@@ -70,6 +70,9 @@ document.getElementById('withdrawBtn').addEventListener('click', function(){
         activityDiv.appendChild(activityDivLiWithdraw);
         totalWithdrawActivityConverted = totalWithdrawActivityConverted + parseFloat(withdrawValue.value);
         totalWithdrawActivity.innerText = totalWithdrawActivityConverted;
+
+        totalBalanceValue = totalBalanceValue - parseFloat(withdrawValue.value);
+        document.getElementById('balanceShowCase').innerText = totalBalanceValue;
         console.log(totalWithdrawActivityConverted);
 
     }
