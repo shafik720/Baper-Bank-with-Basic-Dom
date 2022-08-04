@@ -40,7 +40,6 @@ document.getElementById('depositBtn').addEventListener('click',function(){
 
         totalBalanceValue = convertedDepositShow + totalBalanceValue;
         document.getElementById('balanceShowCase').innerText = totalBalanceValue;
-        console.log(totalBalanceValue);
     }
 
     // Clearing the deposit input field
@@ -63,7 +62,11 @@ document.getElementById('withdrawBtn').addEventListener('click', function(){
     }else if(withdrawValue.value <=0){
         withdrawErrorMsg.innerText = 'Minus value or Zero value is not accepted !'
         withdrawErrorMsg.style.display = 'block';
-    }else{
+    }else if(totalBalanceValue==0 || totalBalanceValue<parseFloat(withdrawValue.value)){
+        withdrawErrorMsg.innerText = 'Sorry ! Withdraw amount exceeded your balance.'
+        withdrawErrorMsg.style.display = 'block';
+    }
+    else{
         withdrawErrorMsg.style.display = 'none';
         let activityDivLiWithdraw = document.createElement('li');
         activityDivLiWithdraw.innerText = 'You have Withdrawed '+withdrawValue.value+'/-';
@@ -77,7 +80,6 @@ document.getElementById('withdrawBtn').addEventListener('click', function(){
 
         totalBalanceValue = totalBalanceValue - parseFloat(withdrawValue.value);
         document.getElementById('balanceShowCase').innerText = totalBalanceValue;
-        console.log(totalWithdrawActivityConverted);
 
     }
 
