@@ -2,6 +2,7 @@
 let depositShow = document.getElementById('depositShowCase').innerText;
 let convertedDepositShow = parseFloat(depositShow);
 let totalDepositValue = convertedDepositShow;
+let totalDepositActivity = document.getElementById('totalDepositActivity');
 
 // Pressing Deposit button
 document.getElementById('depositBtn').addEventListener('click',function(){
@@ -25,10 +26,11 @@ document.getElementById('depositBtn').addEventListener('click',function(){
         activityDiv.appendChild(activityDivLiWithdraw);
         depositShow = depositInput.value;
         convertedDepositShow = parseFloat(depositShow);
-        // console.log(convertedDepositShow);
+
+        document.getElementById('depositShowCase').innerText = depositInput.value;
 
         totalDepositValue = totalDepositValue + convertedDepositShow;
-        console.log(totalDepositValue);
+        totalDepositActivity.innerText = totalDepositValue;
     }
 
     // Clearing the deposit input field
