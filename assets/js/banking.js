@@ -4,6 +4,8 @@ let convertedDepositShow = parseFloat(depositShow);
 let totalDepositValue = convertedDepositShow;
 let totalDepositActivity = document.getElementById('totalDepositActivity');
 
+let withdrawShow = document.getElementById('withdrawShowCase');
+
 let balanceShow = document.getElementById('balanceShowCase').innerText;
 let convertedBalanceShow = parseFloat(balanceShow);
 let totalBalanceValue = convertedBalanceShow;
@@ -70,6 +72,8 @@ document.getElementById('withdrawBtn').addEventListener('click', function(){
         activityDiv.appendChild(activityDivLiWithdraw);
         totalWithdrawActivityConverted = totalWithdrawActivityConverted + parseFloat(withdrawValue.value);
         totalWithdrawActivity.innerText = totalWithdrawActivityConverted;
+
+        withdrawShow.innerText = withdrawValue.value;
 
         totalBalanceValue = totalBalanceValue - parseFloat(withdrawValue.value);
         document.getElementById('balanceShowCase').innerText = totalBalanceValue;
