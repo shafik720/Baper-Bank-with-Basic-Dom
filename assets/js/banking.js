@@ -40,6 +40,11 @@ document.getElementById('depositBtn').addEventListener('click',function(){
 
         totalBalanceValue = convertedDepositShow + totalBalanceValue;
         document.getElementById('balanceShowCase').innerText = totalBalanceValue;
+
+        // disabling withdraw button if balance become zero 
+        if(document.getElementById('balanceShowCase').innerText>0){
+            document.getElementById('withdrawBtn').removeAttribute('disabled');
+        }
     }
 
     // Clearing the deposit input field
@@ -62,7 +67,7 @@ document.getElementById('withdrawBtn').addEventListener('click', function(){
     }else if(withdrawValue.value <=0){
         withdrawErrorMsg.innerText = 'Minus value or Zero value is not accepted !'
         withdrawErrorMsg.style.display = 'block';
-    }else if(totalBalanceValue==0 || totalBalanceValue<parseFloat(withdrawValue.value)){
+    }else if( totalBalanceValue<parseFloat(withdrawValue.value)){
         withdrawErrorMsg.innerText = 'Sorry ! Withdraw amount exceeded your balance.'
         withdrawErrorMsg.style.display = 'block';
     }
@@ -81,8 +86,17 @@ document.getElementById('withdrawBtn').addEventListener('click', function(){
         totalBalanceValue = totalBalanceValue - parseFloat(withdrawValue.value);
         document.getElementById('balanceShowCase').innerText = totalBalanceValue;
 
+        // disabling withdraw button if balance become zero 
+        if(document.getElementById('balanceShowCase').innerText==0){
+            document.getElementById('withdrawBtn').setAttribute('disabled','');
+            console.log('balance zero now');
+        }else{
+            document.getElementById('withdrawBtn').removeAttribute('disabled');
+        }
+
     }
 
     // Clearing the withdraw input field
     withdrawValue.value = '';
 })
+
