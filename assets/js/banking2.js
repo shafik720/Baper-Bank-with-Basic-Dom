@@ -1,21 +1,68 @@
 
-let depositShow = document.getElementById('depositShowCase').innerText;
-let convertedDepositShow = parseFloat(depositShow);
-let totalDepositValue = convertedDepositShow;
-let totalDepositActivity = document.getElementById('totalDepositActivity');
+// let depositShow = document.getElementById('depositShowCase').innerText;
+// let convertedDepositShow = parseFloat(depositShow);
+// let totalDepositValue = convertedDepositShow;
+// let totalDepositActivity = document.getElementById('totalDepositActivity');
 
-let withdrawShow = document.getElementById('withdrawShowCase');
+// let withdrawShow = document.getElementById('withdrawShowCase');
 
-let balanceShow = document.getElementById('balanceShowCase').innerText;
-let convertedBalanceShow = parseFloat(balanceShow);
-let totalBalanceValue = convertedBalanceShow;
+// let balanceShow = document.getElementById('balanceShowCase').innerText;
+// let convertedBalanceShow = parseFloat(balanceShow);
+// let totalBalanceValue = convertedBalanceShow;
 
-let activityDiv = document.getElementById('activity-div');
+// let activityDiv = document.getElementById('activity-div');
 
 
-// Pressing Deposit button
+function x(valueFromInput, showField, erroMsg,totalDepositActivity){
+    let valueFromInputs = document.getElementById(valueFromInput);
+    let showFields = document.getElementById(showField).innerText;
+
+    let totalDepositValue = parseFloat(showFields);
+    // let totalDepositActivityShow = document.getElementById(totalDepositActivity).innerText;
+    
+    let errorMessage = document.getElementById(erroMsg);
+
+    if(valueFromInputs.value ==''){
+        errorMessage.style.display = 'block';
+        errorMessage.innerText = 'Empty input is not accepted !';
+    }else if(valueFromInputs.value<=0){
+        errorMessage.style.display = 'block';
+        errorMessage.innerText = 'Minus value or Zero value is not accepted';
+    }else{
+        errorMessage.style.display = 'none';
+
+        let depositValueConverted = parseFloat(valueFromInputs.value);
+        totalDepositValue = depositValueConverted + totalDepositValue;
+        document.getElementById(totalDepositActivity).innerText = totalDepositValue;
+
+        document.getElementById(showField).innerText = valueFromInputs.value;
+
+        // return totalDepositValue;
+    }
+}
+
+// function balanceWhenDeposit(balanceShowCase, deposited){
+//     let balanceShowCases = document.getElementById(balanceShowCase).innerText;
+//     let convertedBalanceShowCase = parseFloat(balanceShowCases);
+//     let finalBalance = convertedBalanceShowCase + deposited;
+
+//     document.getElementById(balanceShowCase).innerText = finalBalance;
+    
+// }
+
+
 document.getElementById('depositBtn').addEventListener('click',function(){
-    let depositInput = document.getElementById('depositInput');    
+    x('depositInput','depositShowCase','depositErrorMsg','totalDepositActivity');
+    let depositAmount = x;
+    // balanceWhenDeposit('balanceShowCase',depositAmount);
+    console.log(x);
+})
+document.getElementById('withdrawBtn').addEventListener('click',function(){
+    x('withdrawInput','withdrawShowCase','withdrawErrorMsg','totalWithdrawActivity');
+})
+// Pressing Deposit button
+/* document.getElementById('depositBt').addEventListener('click',function(){
+    let depositInput = document.getElementById('depositInput');    //
     let depositErrorMsg = document.getElementById('depositErrorMsg'); // Showing error message if deposit input is invalid
     let activityDivLiWithdraw = document.createElement('li');
     activityDivLiWithdraw.classList.add('text-success', 'fw-bold');    
@@ -26,10 +73,11 @@ document.getElementById('depositBtn').addEventListener('click',function(){
     }else if(depositInput.value<=0){
         depositErrorMsg.style.display = 'block';
         depositErrorMsg.innerText = 'Minus value or Zero value is not accepted';
-    }else if(parseFloat(depositInput.value)>0){
+    }else{
         depositErrorMsg.style.display = 'none';
         activityDivLiWithdraw.innerText = 'You have Deposited '+ depositInput.value+'/-';        
         activityDiv.appendChild(activityDivLiWithdraw);
+
         depositShow = depositInput.value;
         convertedDepositShow = parseFloat(depositShow);
 
@@ -49,7 +97,7 @@ document.getElementById('depositBtn').addEventListener('click',function(){
 
     // Clearing the deposit input field
     depositInput.value = '';
-})
+}) */
 
 
 let withdrawValue = document.getElementById('withdrawInput');
@@ -60,7 +108,7 @@ let totalWithdrawActivityConverted = parseFloat(totalDepositActivity.innerText);
 
 
 // Pressing the withdraw button
-document.getElementById('withdrawBtn').addEventListener('click', function(){
+/* document.getElementById('withdwBt').addEventListener('click', function(){
     if(withdrawValue.value == ''){
         withdrawErrorMsg.innerText = 'You didn"t input anything !'
         withdrawErrorMsg.style.display = 'block';
@@ -98,5 +146,5 @@ document.getElementById('withdrawBtn').addEventListener('click', function(){
 
     // Clearing the withdraw input field
     withdrawValue.value = '';
-})
+}) */
 
